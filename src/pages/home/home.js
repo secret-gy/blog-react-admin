@@ -45,11 +45,11 @@ export default class Home extends React.Component{
 
 
     getMenuList = (menuList,FItem) => {
-        return menuList.map(Item => {
+        return menuList.map((Item,index) => {
             if (!Item.children){
                 return (
-                    <Menu.Item key={Item.key} onClick={(item) => {if (item.item.props.openKeys[0] !== this.state.SubMenuKey){if (item.item.props.openKeys[0] === undefined){ console.log('zhixing le ----------'); this.setState({MenuName:Item.title,SubMenuName:''})}else{ console.log('bugaizhixing '); this.setState({ SubMenuName:FItem.title,MenuName:Item.title})} }else {this.setState({MenuName:Item.title})}}}>
-                        <Link to={Item.key}>{Item.title}</Link>
+                    <Menu.Item key={Item.key} onClick={(item) => {if (item.item.props.openKeys[0] !== this.state.SubMenuKey){if (item.item.props.openKeys[0] === undefined){ this.setState({MenuName:Item.title,SubMenuName:''})}else{ console.log('bugaizhixing '); this.setState({ SubMenuName:FItem.title,MenuName:Item.title})} }else {this.setState({MenuName:Item.title})}}}>
+                        <Link key={index} to={Item.key}>{Item.title}</Link>
                     </Menu.Item>
 
                 // <Menu.Item key={Item.key} onClick={(item) => {if (item.item.props.openKeys[0] !== this.state.SubMenuKey){{this.setState({SubMenuName:FItem.title,MenuName:Item.title})}}else {this.setState({MenuName:Item.title})}}}>
